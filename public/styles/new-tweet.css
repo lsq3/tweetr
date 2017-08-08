@@ -16,7 +16,15 @@ h2 {
   border-bottom: 2px solid black;
 }
 
-.counter {
+#char-counter {
   float: right;
   font-style: italic;
+}
+
+.beyond-limit {
+  color: red;
+}
+
+.within-limit {
+  color: black;
 }
