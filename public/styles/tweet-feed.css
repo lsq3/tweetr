@@ -1,0 +1,35 @@
+#tweets {
+  border: 1px solid #cecece;
+  border-radius: 5px;
+}
+
+ #tweets .tweet-header {
+  background-color: #ebebeb;
+  height: 50px;
+  width: 100%;
+  padding: 5px;
+ }
+
+ #tweets .tweet-footer {
+  border-top: 1px solid #cecece;
+  width: 100%;
+  font-size: 60%;
+  padding: 5px;
+ }
+
+#tweets .profile-pic {
+  height: 40px;
+  width: 40px;
+  border-radius: 5px;
+  float: left;
+}
+
+.user-name {
+  float: left;
+  padding-left: 2px;
+}
+
+.user-handle {
+  float: right;
+}
+
