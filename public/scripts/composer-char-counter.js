@@ -6,19 +6,16 @@ $(document).ready(function() {
 
   $("textarea").on('input', function() {
 
-    const charCount = 140 - $(this).val().length
-    $("#char-counter").html(charCount);
+    const CHARACTER_LIMIT = 140
 
-    if (charCount < 0) {
-      $("#char-counter").removeClass("within-limit")
-      $("#char-counter").addClass("beyond-limit")
-    } else if (charCount >= 0) {
-      $("#char-counter").removeClass("beyond-limit")
-      $("#char-counter").addClass("within-limit")
+    const CHAR_COUNT = CHARACTER_LIMIT - $(this).val().length;
+    $("#char-counter").html(CHAR_COUNT);
 
+    if (CHAR_COUNT < 0) {
+      $("#char-counter").addClass("beyond-limit");
+    } else if (CHAR_COUNT >= 0) {
+      $("#char-counter").removeClass("beyond-limit");
     }
-
   });
-
 });
 
