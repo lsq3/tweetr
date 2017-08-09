@@ -38,43 +38,11 @@ opacity: 1;
   float: right;
 }
 
-.fav-button {
-  width: 10px;
-  height: 10px;
-  float: right;
+#tweets .tweet-actions {
   opacity: 0;
 }
 
-#tweets:hover .fav-button {
-  width: 10px;
-  height: 10px;
-  float: right;
+#tweets:hover .tweet-actions {
   opacity: 1;
 }
 
-.retweet-button {
-  width: 10px;
-  height: 10px;
-  float: right;
-  opacity: 0;
-}
-
-#tweets:hover .retweet-button {
-  width: 10px;
-  height: 10px;
-  float: right;
-  opacity: 1;
-}
-
-.flag-button {
-  width: 10px;
-  height: 10px;
-  float: right;
-  opacity: 0;
-}
-#tweets:hover .flag-button {
-  width: 10px;
-  height: 10px;
-  float: right;
-  opacity: 1;
-}

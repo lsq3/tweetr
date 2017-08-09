@@ -57,34 +57,27 @@ $(document).ready(function() {
   }
 ]
 
-  function createTweetElement(tweets) {
+  function createTweetElement(tweet) {
 
     let $tweet = $("<article>").attr("class", "tweet")
         .append($("<header>").attr("class", "tweet-header")
             .append($("<img>").attr({
                                       class: "profile-pic",
-                                      src: tweets.user.avatars.small
+                                      src: tweet.user.avatars.small
                                     }))
-            .append($("<span>").attr("class", "user-name").html(tweets.user.name))
-            .append($("<span>").attr("class", "user-handle").html(tweets.user.handle))
+            .append($("<span>").attr("class", "user-name").html(tweet.user.name))
+            .append($("<span>").attr("class", "user-handle").html(tweet.user.handle))
         )
         .append($("<div>").attr("class", "tweet-body")
-            .append($("<p>").attr("class", "tweet-content").html(tweets.content))
+            .append($("<p>").attr("class", "tweet-content").html(tweet.content.text))
         )
         .append($("<footer>").attr("class", "tweet-footer")
-            .append($("<span>").attr("class", "tweet-age").html(tweets.created_at))
-            .append($("<img>").attr({
-                                      class: "fav-button",
-                                      src: "/images/fav-button.png"
-                                    }))
-            .append($("<img>").attr({
-                                      class: "retweet-button",
-                                      src: "/images/retweet-button.png"
-                                    }))
-            .append($("<img>").attr({
-                                      class: "flag-button",
-                                      src: "/images/flag-button.png"
-                                    }))
+            .append($("<span>").attr("class", "tweet-age").html(tweet.created_at))
+            .append($("<span>").attr("class", "tweet-actions")
+              .append($("<i>").attr("class", "fa fa-heart"))
+              .append($("<i>").attr("class", "fa fa-retweet"))
+              .append($("<i>").attr("class", "fa fa-flag"))
+              )
             )
     return $tweet;
   };
@@ -92,7 +85,7 @@ $(document).ready(function() {
 
   function renderTweets(tweets) {
 
-    data.forEach(function (key) {
+    tweets.forEach(function (key) {
       let $tweet = createTweetElement(key);
       $("#tweets").append($tweet);
     });
