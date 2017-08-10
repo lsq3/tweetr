@@ -10,53 +10,7 @@
 
 $(document).ready(function() {
 
-  var data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": {
-        "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-        "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-        "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-      },
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": {
-        "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
-        "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
-        "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
-      },
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  },
-  {
-    "user": {
-      "name": "Johann von Goethe",
-      "avatars": {
-        "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
-        "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-        "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
-      },
-      "handle": "@johann49"
-    },
-    "content": {
-      "text": "Blah blah not german text blah blah."
-    },
-    "created_at": 1461113796368
-  }
-]
-
+  // create a function to build the DOM elements required to display a tweet feed
   function createTweetElement(tweet) {
 
     let $tweet = $("<article>").attr("class", "tweet")
@@ -82,15 +36,37 @@ $(document).ready(function() {
     return $tweet;
   };
 
-
+  // leverage the 'create tweet' function and loop over the array of tweets, then render
+  // all tweets in the feed accordingly
   function renderTweets(tweets) {
-
     tweets.forEach(function (key) {
       let $tweet = createTweetElement(key);
       $("#tweets").append($tweet);
     });
   };
 
-  renderTweets(data)
+  // call the tweet rendering function every time the page loads so the feed is up to date
+
+  $.ajax({
+    method: "GET",
+    url: "/tweets"
+  }).done(function (tweets) {
+    renderTweets(tweets)
+  });
+
+  // load an event listener to catch clicks on the form button and act accordingly
+  // $('#create-tweet').on('click', function(event) {
+  //   event.preventDefault();
+  //   var tweetText = $("#tweet-text").val()
+  //
+  //   $.ajax({
+  //     method: "GET",
+  //     url: "/tweets",
+  //     data:
+  //   }).done(function (tweets) {
+  //     renderTweets(tweets);
+  //   });
+
+// });
 
 });
