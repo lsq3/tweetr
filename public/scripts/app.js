@@ -45,28 +45,34 @@ $(document).ready(function() {
     });
   };
 
-  // call the tweet rendering function every time the page loads so the feed is up to date
+  // create a function to house the ajax call & rendering function, to load
+  // all tweets every time the page loads (initial load & after posting a tweet)
+  function loadTweets(){
+    $.ajax({
+      method: "GET",
+      url: "/tweets"
+    }).done(function (tweets) {
+      renderTweets(tweets)
+    });
+  };
 
-  $.ajax({
-    method: "GET",
-    url: "/tweets"
-  }).done(function (tweets) {
-    renderTweets(tweets)
-  });
+  loadTweets();
 
   // load an event listener to catch clicks on the form button and act accordingly
-  // $('#create-tweet').on('click', function(event) {
-  //   event.preventDefault();
-  //   var tweetText = $("#tweet-text").val()
-  //
-  //   $.ajax({
-  //     method: "GET",
-  //     url: "/tweets",
-  //     data:
-  //   }).done(function (tweets) {
-  //     renderTweets(tweets);
-  //   });
+  $('#create-tweet').on('click', function(event) {
+    event.preventDefault();
+    var tweetText = $("#tweet-text").val()
 
-// });
+    $.ajax({
+      method: "POST",
+      url: "/tweets",
+      data: {
+        text: tweetText
+      }
+    }).done(function (tweets) {
+      loadTweets(tweets);
+    });
+
+});
 
 });
