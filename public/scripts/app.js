@@ -51,7 +51,7 @@ $(document).ready(function() {
       "handle": "@johann49"
     },
     "content": {
-      "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
+      "text": "Blah blah not german text blah blah."
     },
     "created_at": 1461113796368
   }
@@ -65,14 +65,14 @@ $(document).ready(function() {
                                       class: "profile-pic",
                                       src: tweet.user.avatars.small
                                     }))
-            .append($("<span>").attr("class", "user-name").html(tweet.user.name))
-            .append($("<span>").attr("class", "user-handle").html(tweet.user.handle))
+            .append($("<span>").attr("class", "user-name").text(tweet.user.name))
+            .append($("<span>").attr("class", "user-handle").text(tweet.user.handle))
         )
         .append($("<div>").attr("class", "tweet-body")
-            .append($("<p>").attr("class", "tweet-content").html(tweet.content.text))
+            .append($("<p>").attr("class", "tweet-content").text(tweet.content.text))
         )
         .append($("<footer>").attr("class", "tweet-footer")
-            .append($("<span>").attr("class", "tweet-age").html(tweet.created_at))
+            .append($("<span>").attr("class", "tweet-age").text(tweet.created_at))
             .append($("<span>").attr("class", "tweet-actions")
               .append($("<i>").attr("class", "fa fa-heart"))
               .append($("<i>").attr("class", "fa fa-retweet"))
