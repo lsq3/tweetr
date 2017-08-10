@@ -6,6 +6,7 @@
 
 "use strict";
 
+// create a function to build the DOM elements required to display a tweet feed
 function createTweetElement(tweet) {
 
   let $tweet = $("<article>").attr("class", "tweet")
@@ -55,9 +56,7 @@ function loadTweets(){
 
 $(document).ready(function() {
 
-  // create a function to build the DOM elements required to display a tweet feed
-
-
+  //call the load tweets function upon document ready
   loadTweets();
 
   // load an event listener to catch clicks on the form button and act accordingly
