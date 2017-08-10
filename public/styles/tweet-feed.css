@@ -1,11 +1,15 @@
-#tweets:hover {
+.tweet:hover {
 opacity: 1;
 }
 
-#tweets {
+.tweet {
   opacity: 0.6;
   border: 1px solid #cecece;
   border-radius: 5px;
+}
+
+.tweet {
+  margin-bottom: 24px;
 }
 
  #tweets .tweet-header {
@@ -38,11 +42,10 @@ opacity: 1;
   float: right;
 }
 
-#tweets .tweet-actions {
+.tweet .tweet-actions {
   opacity: 0;
 }
 
-#tweets:hover .tweet-actions {
+.tweet:hover .tweet-actions {
   opacity: 1;
 }
-
