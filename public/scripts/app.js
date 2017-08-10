@@ -41,7 +41,7 @@ $(document).ready(function() {
   function renderTweets(tweets) {
     tweets.forEach(function (key) {
       let $tweet = createTweetElement(key);
-      $("#tweets").append($tweet);
+      $("#tweets").prepend($tweet);
     });
   };
 
@@ -69,10 +69,11 @@ $(document).ready(function() {
       data: {
         text: tweetText
       }
-    }).done(function (tweets) {
+    })
+    .done(function (tweets) {
       loadTweets(tweets);
+      //TODO validate that tweets aren't getting replicated after the mongoDB conversion//
     });
-
-});
+  });
 
 });
