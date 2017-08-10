@@ -9,16 +9,17 @@
   z-index: 1;
 }
 
-#nav-bar .logo {
-  height: 80px;
-  width: 80px;
-  position: relative;
-  float: left;
-  padding-right: 10px;
+ #nav-bar .logo {
+   /*position: relative;*/
+   float: left;
+   font-size: 25px;
  }
 
-#nav-bar .header {
-  position: relative;
-  font-size: 200%;
-  line-height: 2.5;
- }
+#compose-btn {
+  float: right;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: grey;
+  padding: 5px;
+  max-height: 75px;
+}
