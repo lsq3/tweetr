@@ -65,9 +65,11 @@ $(document).ready(function() {
     var tweetText = $("#tweet-text").val()
 
     if (tweetText.length === 0) {
-      alert("You've gotta say something! Don't be shy!")
+      alert("You've gotta say something! Don't be shy!");
+      $("#tweet-text").focus();
     } else if (tweetText.length > 140) {
-        alert("You've said too much... let's stick to 140 characters or less, please!")
+        alert("You've said too much... let's stick to 140 characters or less, please!");
+        $("#tweet-text").focus();
       } else {
           $.ajax({
             method: "POST",
