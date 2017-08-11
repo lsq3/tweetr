@@ -22,7 +22,7 @@ function createTweetElement(tweet) {
           .append($("<p>").attr("class", "tweet-content").text(tweet.content.text))
       )
       .append($("<footer>").attr("class", "tweet-footer")
-          .append($("<span>").attr("class", "tweet-age").text(tweet.created_at))
+          .append($("<span>").attr("class", "tweet-age").text("bleh"))
           .append($("<span>").attr("class", "tweet-actions")
             .append($("<i>").attr("class", "fa fa-heart"))
             .append($("<i>").attr("class", "fa fa-retweet"))
@@ -78,8 +78,7 @@ $(document).ready(function() {
           }).done(function (tweets) {
             loadTweets(tweets);
             $("#tweet-text").val("");
-            // $("#char-counter").val(140);
-            //TODO validate that tweets aren't getting replicated after the mongoDB conversion//
+            $("#char-counter").text('140');
             });
         };
     });
