@@ -22,7 +22,7 @@ function createTweetElement(tweet) {
           .append($("<p>").attr("class", "tweet-content").text(tweet.content.text))
       )
       .append($("<footer>").attr("class", "tweet-footer")
-          .append($("<span>").attr("class", "tweet-age").text("bleh"))
+          .append($("<span>").attr("class", "tweet-age").text(timeConverter(tweet.created_at)))
           .append($("<span>").attr("class", "tweet-actions")
             .append($("<i>").attr("class", "fa fa-heart"))
             .append($("<i>").attr("class", "fa fa-retweet"))
@@ -35,6 +35,7 @@ function createTweetElement(tweet) {
 // leverage the 'create tweet' function and loop over the array of tweets, then render
 // all tweets in the feed accordingly
 function renderTweets(tweets) {
+  $("#tweets").html("");
   tweets.forEach(function (key) {
     let $tweet = createTweetElement(key);
     $("#tweets").prepend($tweet);
@@ -52,7 +53,21 @@ function loadTweets(){
   });
 };
 
-// code pertinent to rendering tweets into the feed
+//create a function to convert the timestamp to a legible date & time
+function timeConverter(tweetDate){
+  var a = new Date(tweetDate);
+  var amPm = a.getHours() >= 12 ?'PM':'AM'
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var year = a.getFullYear();
+  var month = months[a.getMonth()];
+  var date = a.getDate();
+  var hour = ("0" + ((a.getHours() % 12)||12)).substr(-2)
+  var min = ("0" + a.getMinutes()).substr(-2)
+  var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ' ' + amPm
+  return time;
+}
+
+// below is all code required to wait for DOM READY before running
 
 $(document).ready(function() {
 
@@ -77,8 +92,8 @@ $(document).ready(function() {
             data: {
               text: tweetText
             }
-          }).done(function (tweets) {
-            loadTweets(tweets);
+          }).done(function (tweet) {
+            loadTweets();
             $("#tweet-text").val("");
             $("#char-counter").text('140');
             });
