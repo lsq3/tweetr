@@ -3,6 +3,7 @@
   padding: 16px;
   border-radius: 5px;
   margin: 25px;
+  display: none;
 }
 
 textarea {
