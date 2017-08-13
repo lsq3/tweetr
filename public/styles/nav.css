@@ -2,24 +2,42 @@
   height: 80px;
   width: 100%;
   background-color: #00a087;
-  color: #e8fdff;
+  color: black;
   position: fixed;
   padding-right: 2em;
   padding-left: 2em;
   z-index: 1;
+  display: grid;
+  grid-template-columns: 150px 1fr 100px;
+  grid-template-rows: 80px;
 }
 
- #nav-bar .logo {
-   /*position: relative;*/
+.header-logo {
    float: left;
-   font-size: 25px;
+   font-size: 20px;
  }
 
-#compose-btn {
+.press {
   float: right;
-  border: 2px solid black;
-  border-radius: 5px;
-  background-color: grey;
-  padding: 5px;
-  max-height: 75px;
+padding-top: 16px;
+  grid-column-start: 3;
+}
+
+
+section.press button {
+  color: #000;
+  background-color: #eee;
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
+section.press button:hover,
+section.press button.hover {
+  background-color: #00a087
+}
+
+section.press button:active,
+section.press button.active {
+  background-color: #00a087;
+  transform: translateY(5px);
 }
